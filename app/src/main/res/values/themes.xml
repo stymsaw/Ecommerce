@@ -2,4 +2,7 @@
 <resources>
 
     <style name="Theme.Ecommerce" parent="android:Theme.Material.Light.NoActionBar" />
+
+
+
 </resources>
