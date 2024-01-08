@@ -11,13 +11,7 @@ class Ecommerce : Application() {
 
     override fun onCreate() {
         super.onCreate()
-
-
-
-
-
     }
-
 
 
 }

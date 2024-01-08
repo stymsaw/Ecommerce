@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.screens
+package com.example.ecommerce.ui.homescreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
