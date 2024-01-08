@@ -3,7 +3,7 @@
 
     <style name="Base.Theme.MySplashScreen" parent="Theme.Ecommerce">
 
-        <item name="android:windowSplashScreenBackground">@color/teal_200</item>
+<!--        <item name="android:windowSplashScreenBackground">@color/teal_200</item>-->
 
 
 
