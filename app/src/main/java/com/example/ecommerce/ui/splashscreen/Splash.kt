@@ -1,19 +1,24 @@
 package com.example.ecommerce.ui.splashscreen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.layout.wrapContentWidth
+import androidx.compose.material3.ElevatedButton
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.OutlinedIconButton
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
@@ -21,27 +26,43 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.ecommerce.R
+import com.example.ecommerce.viewmodel.ViewModelSplash
 import kotlinx.coroutines.delay
 
 
 @Composable
-fun SplashScreen(navController: NavHostController) {
-
+fun SplashScreen(navController: NavHostController? = null) {
+    val viewModel = viewModel<ViewModelSplash>()
     LaunchedEffect(true) {
+
         delay(3000)
-        navController.navigate("home")
+        navController?.navigate("home")
+
     }
 
-    Box(
+    Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(Color.Black)
+            .background(viewModel.backgroundColor)
+            .padding(top = 50.dp)
     ) {
         AnimatedPreloader(
             modifier = Modifier
                 .size(200.dp)
-                .align(Alignment.Center)
+                .align(Alignment.CenterHorizontally)
         )
+        ElevatedButton(
+            onClick = { viewModel.changeBackgroundColor() },
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+
+        ) {
+            Text(
+                text = "change background",
+            )
+        }
+
+
     }
 }
 
@@ -68,3 +89,8 @@ fun AnimatedPreloader(modifier: Modifier = Modifier) {
 
 }
 
+@Preview
+@Composable
+fun PreviewSplash() {
+    SplashScreen()
+}
