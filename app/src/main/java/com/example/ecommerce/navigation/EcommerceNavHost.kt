@@ -4,7 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.ecommerce.ui.screens.HomeScreen
+import com.example.ecommerce.ui.homescreen.HomeScreen
 import com.example.ecommerce.ui.splashscreen.SplashScreen
 
 @Composable
