@@ -29,7 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     EcommerceNavHost()
-//                    testing new commit
+//                    testing new
                 }
             }
         }
