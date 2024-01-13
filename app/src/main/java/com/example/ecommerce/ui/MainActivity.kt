@@ -9,12 +9,19 @@ import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import com.example.ecommerce.navigation.EcommerceNavHost
 import com.example.ecommerce.ui.theme.EcommerceTheme
+import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 class MainActivity : ComponentActivity() {
+
+    @Inject
+    lateinit var analytics: String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
+
             EcommerceTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
@@ -22,6 +29,7 @@ class MainActivity : ComponentActivity() {
                     color = MaterialTheme.colorScheme.background
                 ) {
                     EcommerceNavHost()
+//                    testing new commit
                 }
             }
         }
