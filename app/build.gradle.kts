@@ -4,6 +4,8 @@ plugins {
     alias(libs.plugins.kotlinAndroid)
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
+    id("kotlin-parcelize")
+
 }
 
 android {
@@ -77,8 +79,12 @@ dependencies {
     implementation(libs.androidx.navigation.compose)
     implementation(libs.lottie.compose)
 
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
+
 
 }
 

@@ -7,7 +7,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
 import kotlin.random.Random
 
-class ViewModelSplash : ViewModel() {
+class SplashScreenVM : ViewModel() {
 
     var backgroundColor by mutableStateOf(Color.DarkGray)
         private set

@@ -1,11 +1,10 @@
 package com.example.ecommerce.viewmodel
 
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import com.example.ecommerce.data.mockdata.TabItems
 
-class ViewModelHome : ViewModel() {
+class HomeScreenVM : ViewModel() {
 
     var selectedTabIndex = mutableIntStateOf(0)
         private set
