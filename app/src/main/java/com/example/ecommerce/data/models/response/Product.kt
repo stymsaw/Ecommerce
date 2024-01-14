@@ -1,4 +1,4 @@
-package com.example.ecommerce.data.models
+package com.example.ecommerce.data.models.response
 
 
 import com.google.gson.annotations.SerializedName
@@ -18,15 +18,9 @@ data class Product(
     @SerializedName("price")
     val price: Int,
     @SerializedName("title")
-    val title: String
-) : Parcelable {
-    @Parcelize
-    data class Category(
-        @SerializedName("id")
-        val id: Int,
-        @SerializedName("image")
-        val image: String,
-        @SerializedName("name")
-        val name: String
-    ) : Parcelable
-}
+    val title: String,
+    @SerializedName("creationAt")
+    val creationAt: String? = null,
+    @SerializedName("updatedAt")
+    val updatedAt: String? = null
+) : Parcelable

@@ -7,29 +7,38 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
+import androidx.lifecycle.ViewModelProvider
+import com.example.ecommerce.Ecommerce
 import com.example.ecommerce.navigation.EcommerceNavHost
 import com.example.ecommerce.ui.theme.EcommerceTheme
+import com.example.ecommerce.viewmodel.MainVM
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class MainActivity : ComponentActivity() {
+@AndroidEntryPoint
+class MainActivity() : ComponentActivity() {
 
-    @Inject
-    lateinit var analytics: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setContent {
 
+        val mainVM = ViewModelProvider(this)[MainVM::class.java]
+
+
+
+
+
+        setContent {
             EcommerceTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     EcommerceNavHost()
-//                    testing
                 }
             }
         }

@@ -14,11 +14,16 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ecommerce.viewmodel.HomeScreenVM
+import com.example.ecommerce.viewmodel.MainVM
+import dagger.hilt.android.lifecycle.HiltViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
@@ -45,7 +50,6 @@ fun HomeScreen() {
         Column {
             HorizontalPager(
                 state = pagerState,
-
                 modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
@@ -62,7 +66,6 @@ fun HomeScreen() {
 
             }
             TabRow(selectedTabIndex = viewModel.selectedTabIndex.intValue) {
-
                 viewModel.tabItems.forEachIndexed { index, tabItem ->
                     Tab(
                         selected = viewModel.selectedTabIndex.intValue == index,
