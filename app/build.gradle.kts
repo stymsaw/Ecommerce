@@ -80,6 +80,9 @@ dependencies {
     implementation(libs.lottie.compose)
 
     implementation (libs.retrofit)
+    implementation (libs.okhttps)
+
+    implementation (libs.logging.interceptor)
     implementation (libs.converter.gson)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)

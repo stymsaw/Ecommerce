@@ -34,13 +34,9 @@ class MainVM @Inject constructor(private val repository: ProductsRepository) : V
                     title = "title not required"
                 )
             )
-
-
         }
 
-
     }
-
 
 }
 
