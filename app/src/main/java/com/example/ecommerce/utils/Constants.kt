@@ -15,5 +15,6 @@ object Constants {
 
 //    CATEGORY
     const val GET_CATEGORIES = "categories"
+//    qwerty
 
 }
