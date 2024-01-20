@@ -45,7 +45,7 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.1"
+        kotlinCompilerExtensionVersion = "1.5.5"
     }
     packaging {
         resources {
@@ -80,10 +80,14 @@ dependencies {
     implementation(libs.lottie.compose)
 
     implementation (libs.retrofit)
-    implementation (libs.okhttps)
-
-    implementation (libs.logging.interceptor)
     implementation (libs.converter.gson)
+
+    // define a BOM and its version
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
+
+    // define any required OkHttp artifacts without version
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation("com.squareup.okhttp3:logging-interceptor")
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
