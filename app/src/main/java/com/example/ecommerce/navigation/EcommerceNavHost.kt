@@ -1,5 +1,7 @@
 package com.example.ecommerce.navigation
 
+import androidx.compose.animation.shrinkOut
+import androidx.compose.animation.slideOut
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -11,9 +13,11 @@ import com.example.ecommerce.viewmodel.MainVM
 @Composable
 fun EcommerceNavHost(mainVM: MainVM) {
     val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "splash") {
+    NavHost(
+        navController = navController, startDestination = "splash",
+        exitTransition = { shrinkOut() }
+    ) {
 
-        mainVM
 
         composable(route = "splash") {
             SplashScreen(navController = navController)
