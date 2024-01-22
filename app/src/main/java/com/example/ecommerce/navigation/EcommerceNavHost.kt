@@ -18,14 +18,8 @@ fun EcommerceNavHost(mainVM: MainVM) {
         exitTransition = { shrinkOut() }
     ) {
 
-
-        composable(route = "splash") {
-            SplashScreen(navController = navController)
-        }
-
-        composable(route = "home") {
-            HomeScreen()
-        }
+        composable(route = "splash") { SplashScreen(navController = navController) }
+        composable(route = "home") { HomeScreen() }
 
     }
 
