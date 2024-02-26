@@ -15,7 +15,6 @@ fun EcommerceNavHost(mainVM: MainVM) {
     val navController = rememberNavController()
     NavHost(
         navController = navController, startDestination = "splash",
-        exitTransition = { shrinkOut() }
     ) {
 
         composable(route = "splash") { SplashScreen(navController = navController) }
