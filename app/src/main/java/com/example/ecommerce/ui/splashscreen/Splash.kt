@@ -31,7 +31,7 @@ fun SplashScreen(navController: NavHostController? = null) {
     val viewModel = viewModel<SplashScreenVM>()
     LaunchedEffect(true) {
 
-        delay(3000)
+        delay(1000)
         navController?.navigate("home")
 
     }

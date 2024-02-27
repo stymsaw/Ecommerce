@@ -91,6 +91,7 @@ dependencies {
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
+    implementation(libs.coil.compose)
 
 
 }

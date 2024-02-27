@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui.homescreen
+package com.example.ecommerce.ui.main_screen
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.background
@@ -14,20 +14,16 @@ import androidx.compose.material3.TabRow
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.ecommerce.ui.main_screen.cart_screen.CartScreen
+import com.example.ecommerce.ui.main_screen.home_screen.HomeScreen
 import com.example.ecommerce.viewmodel.HomeScreenVM
-import com.example.ecommerce.viewmodel.MainVM
-import dagger.hilt.android.lifecycle.HiltViewModel
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun HomeScreen() {
+fun MainScreen() {
 
     val viewModel = viewModel<HomeScreenVM>()
     val pagerState = rememberPagerState {
@@ -39,7 +35,7 @@ fun HomeScreen() {
     }
 
     LaunchedEffect(pagerState.currentPage) {
-            viewModel.changeSelectedIndex(pagerState.targetPage)
+        viewModel.changeSelectedIndex(pagerState.targetPage)
     }
 
     Box(
@@ -55,14 +51,13 @@ fun HomeScreen() {
                     .weight(1f)
             ) { index ->
 
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
+                when (index) {
 
-                ) {
-
-                    Text(text = viewModel.tabItems[index].title)
+                    0 -> HomeScreen()
+                    1 -> CartScreen()
                 }
+                Text(text = viewModel.tabItems[index].title)
+
 
             }
             TabRow(selectedTabIndex = viewModel.selectedTabIndex.intValue) {

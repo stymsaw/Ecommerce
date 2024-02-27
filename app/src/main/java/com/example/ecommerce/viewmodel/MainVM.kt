@@ -1,13 +1,12 @@
 package com.example.ecommerce.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.example.ecommerce.data.models.response.Product
+import com.example.ecommerce.data.models.response.product.ProductModel
 import com.example.ecommerce.data.repository.ProductsRepository
 import androidx.lifecycle.viewModelScope
 import com.example.ecommerce.data.models.request.NewProduct
-import com.example.ecommerce.data.models.response.Category
+import com.example.ecommerce.data.models.response.category.CategoryModel
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.async
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -15,10 +14,10 @@ import javax.inject.Inject
 @HiltViewModel
 class MainVM @Inject constructor(private val repository: ProductsRepository) : ViewModel() {
 
-    val products: StateFlow<List<Product>>
+    val products: StateFlow<List<ProductModel>>
         get() = repository.products
 
-    val categories: StateFlow<List<Category>>
+    val categories: StateFlow<List<CategoryModel>>
         get() = repository.categories
 
 

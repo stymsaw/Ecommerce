@@ -13,13 +13,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun ProductCard(
+fun CategoryCard(
     categoryName: String = "category name",
-    categoryImage: String = "category image",
-    description: String = "product image",
-    images: List<String> = listOf("image1", "image2", "image3"),
-    price: String = "$12",
-    title: String = "product title",
+    categoryImage: String = "category image"
 ) {
 
     Column(
@@ -28,11 +24,6 @@ fun ProductCard(
             .background(color = Color.Cyan)
             .padding(10.dp)
     ) {
-
-        Text(text = images[0])
-        Text(text = title)
-        Text(text = price)
-        Text(text = description)
         Text(text = categoryName)
         Text(text = categoryImage)
 
@@ -44,8 +35,6 @@ fun ProductCard(
 
 @Preview(showSystemUi = true)
 @Composable
-fun ProductCardPreview() {
-
-    ProductCard(
-    )
+fun CategoryCardPreview() {
+    CategoryCard()
 }
