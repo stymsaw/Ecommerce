@@ -16,6 +16,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ecommerce.ui.main_screen.cart_screen.CartScreen
 import com.example.ecommerce.ui.main_screen.home_screen.HomeScreen
@@ -85,5 +86,10 @@ fun MainScreen() {
             }
         }
     }
+}
 
+@Preview
+@Composable
+fun MainScreenPreview() {
+    MainScreen()
 }

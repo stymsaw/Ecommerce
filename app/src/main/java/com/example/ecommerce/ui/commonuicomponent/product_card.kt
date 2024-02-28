@@ -3,22 +3,28 @@ package com.example.ecommerce.ui.commonuicomponent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import coil.compose.AsyncImage
 import com.example.ecommerce.R
 
 @Composable
@@ -32,25 +38,34 @@ fun ProductCard(
 ) {
 
     Column(
-        horizontalAlignment = Alignment.CenterHorizontally,
+        horizontalAlignment = Alignment.Start,
         modifier = Modifier
+            .shadow(
+                elevation = 5.dp,
+                ambientColor = Color.DarkGray
+            )
             .padding(horizontal = 20.dp, vertical = 20.dp)
-            .background(color = Color.Cyan)
+            .clip(shape = CircleShape.copy(all = CornerSize(5.dp)))
+            .background(color = Color.Gray)
             .padding(10.dp)
     ) {
 
-        Image(
-            painter = painterResource(id = R.drawable.img_2), contentDescription = null,
-            contentScale = ContentScale.Crop,
+        AsyncImage(
+            model = images[0],
+            contentDescription = null,
+            alignment = Alignment.Center,
             modifier = Modifier
-                .size(64.dp)
-                .border(1.dp, Color.Gray, shape = RectangleShape)
+                .size(150.dp)
+                .clip(CircleShape)
         )
-        Text(text = title)
-        Text(text = price)
-        Text(text = description)
-        Text(text = categoryName)
-        Text(text = categoryImage)
+        Box(Modifier.height(5.dp))
+
+        Text(text = title, maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Box(Modifier.height(5.dp))
+        Text(text = "Price: $$price", maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Box(Modifier.height(5.dp))
+        Text(text = "Category: $categoryName", maxLines = 1, overflow = TextOverflow.Ellipsis)
+        Box(Modifier.height(5.dp))
 
 
     }

@@ -1,10 +1,15 @@
 package com.example.ecommerce.data.mockdata
 
+import com.example.ecommerce.data.models.response.product.ProductModel
 import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class FakeProducts {
 
-    val responseStr = """
+
+    companion object {
+
+        private val responseStr = """
             
             [
                 {
@@ -474,8 +479,15 @@ class FakeProducts {
             ]
         """.trimIndent()
 
-    val gson = Gson()
+        fun getProducts(): List<ProductModel> {
+            val gson = Gson()
+            val listTyp = object : TypeToken<List<ProductModel?>>() {}.type
+            return gson.fromJson(responseStr, listTyp)
 
+        }
+
+
+    }
 
 
 }

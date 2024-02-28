@@ -13,10 +13,9 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Add
 import androidx.compose.material.icons.outlined.Delete
-import androidx.compose.material.icons.outlined.Maximize
+import androidx.compose.material.icons.outlined.Remove
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +23,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -35,7 +33,6 @@ import com.example.ecommerce.R
 @Composable
 fun CartItem(
     title: String = "product title",
-    categoryName: String = "category name",
     price: String = "$12",
     categoryImage: String = "category image",
     description: String = "product description",
@@ -48,6 +45,7 @@ fun CartItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 20.dp)
+            .clip(CircleShape)
             .shadow(15.dp)
             .background(color = Color.Gray)
             .padding(10.dp)
@@ -75,7 +73,7 @@ fun CartItem(
 
         {
             IconButton(onClick = { }) {
-                Icon(Icons.Outlined.Delete, contentDescription = "reduce item")
+                Icon(Icons.Outlined.Remove, contentDescription = "reduce item")
             }
             Text(text = "3", fontSize = 18.sp)
             IconButton(onClick = { }) {
