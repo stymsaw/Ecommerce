@@ -46,6 +46,5 @@ fun ProductCard(
 @Composable
 fun ProductCardPreview() {
 
-    ProductCard(
-    )
+    ProductCard()
 }
