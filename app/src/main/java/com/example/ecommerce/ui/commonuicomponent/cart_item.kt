@@ -16,12 +16,15 @@ import androidx.compose.material.icons.outlined.Delete
 import androidx.compose.material.icons.outlined.Maximize
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.Shapes
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
@@ -45,7 +48,8 @@ fun CartItem(
         modifier = Modifier
             .fillMaxWidth()
             .padding(horizontal = 20.dp, vertical = 20.dp)
-            .background(color = Color.Cyan)
+            .shadow(15.dp)
+            .background(color = Color.Gray)
             .padding(10.dp)
     ) {
 
@@ -58,7 +62,10 @@ fun CartItem(
                 .border(2.dp, Color.Gray, shape = CircleShape)
         )
 
-        Column {
+        Column(
+            modifier = Modifier,
+            verticalArrangement = Arrangement.SpaceAround
+        ) {
             Text(text = title)
             Text(text = price)
         }
