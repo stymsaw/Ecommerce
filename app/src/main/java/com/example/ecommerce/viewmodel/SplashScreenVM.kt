@@ -14,8 +14,6 @@ class SplashScreenVM : ViewModel() {
 
 
     fun changeBackgroundColor() {
-
-
         backgroundColor = Color(
             Random.nextFloat(),
             Random.nextFloat(),

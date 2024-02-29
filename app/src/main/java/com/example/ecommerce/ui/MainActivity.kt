@@ -15,25 +15,15 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity() : ComponentActivity() {
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//  View model
         val mainVM = ViewModelProvider(this)[MainVM::class.java]
-
-
-
-
-
         setContent {
             EcommerceTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
                     EcommerceNavHost(mainVM)
                 }
             }

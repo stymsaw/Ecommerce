@@ -1,12 +1,11 @@
 package com.example.ecommerce.ui.splashscreen
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.material3.ElevatedButton
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
@@ -31,12 +30,13 @@ fun SplashScreen(navController: NavHostController? = null) {
     val viewModel = viewModel<SplashScreenVM>()
     LaunchedEffect(true) {
 
-        delay(1000)
+        delay(2000)
         navController?.navigate("home")
 
     }
 
     Column(
+        verticalArrangement = Arrangement.Center,
         modifier = Modifier
             .fillMaxSize()
             .background(viewModel.backgroundColor)
@@ -47,16 +47,16 @@ fun SplashScreen(navController: NavHostController? = null) {
                 .size(200.dp)
                 .align(Alignment.CenterHorizontally)
         )
-        ElevatedButton(
-            onClick = { viewModel.changeBackgroundColor() },
-            modifier = Modifier
-                .align(Alignment.CenterHorizontally)
-
-        ) {
-            Text(
-                text = "change background",
-            )
-        }
+//        ElevatedButton(
+//            onClick = { viewModel.changeBackgroundColor() },
+//            modifier = Modifier
+//                .align(Alignment.CenterHorizontally)
+//
+//        ) {
+//            Text(
+//                text = "change background",
+//            )
+//        }
 
 
     }
