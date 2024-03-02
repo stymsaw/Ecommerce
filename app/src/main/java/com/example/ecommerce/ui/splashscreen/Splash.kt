@@ -21,6 +21,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.ecommerce.R
+import com.example.ecommerce.navigation.Pages
 import com.example.ecommerce.viewmodel.SplashScreenVM
 import kotlinx.coroutines.delay
 
@@ -31,7 +32,7 @@ fun SplashScreen(navController: NavHostController? = null) {
     LaunchedEffect(true) {
 
         delay(2000)
-        navController?.navigate("home")
+        navController?.navigate(Pages.HOME.name)
 
     }
 

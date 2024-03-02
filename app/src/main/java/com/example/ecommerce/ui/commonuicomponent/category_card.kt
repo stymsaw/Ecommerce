@@ -44,7 +44,7 @@ fun CategoryCard(
             contentDescription = null,
             contentScale = ContentScale.Crop,
             modifier = Modifier
-                .size(64.dp)
+                .size(120.dp)
                 .clip(RectangleShape)
                 .border(2.dp, Color.Gray, shape = RectangleShape)
         )

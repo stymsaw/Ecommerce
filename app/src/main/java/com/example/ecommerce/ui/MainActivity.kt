@@ -8,6 +8,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.compose.rememberNavController
 import com.example.ecommerce.navigation.EcommerceNavHost
 import com.example.ecommerce.ui.theme.EcommerceTheme
 import com.example.ecommerce.viewmodel.MainVM
@@ -19,12 +20,12 @@ class MainActivity() : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val mainVM = ViewModelProvider(this)[MainVM::class.java]
         setContent {
+            val navController = rememberNavController()
             EcommerceTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    EcommerceNavHost(mainVM)
+                    EcommerceNavHost(mainVM, navController)
                 }
             }
         }

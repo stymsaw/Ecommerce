@@ -18,13 +18,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.navigation.NavHostController
 import com.example.ecommerce.ui.main_screen.cart_screen.CartScreen
 import com.example.ecommerce.ui.main_screen.home_screen.HomeScreen
+import com.example.ecommerce.ui.main_screen.profile_screen.ProfileScreen
 import com.example.ecommerce.viewmodel.HomeScreenVM
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-fun MainScreen() {
+fun MainScreen(navController: NavHostController?) {
 
     val viewModel = viewModel<HomeScreenVM>()
     val pagerState = rememberPagerState {
@@ -56,6 +58,8 @@ fun MainScreen() {
 
                     0 -> HomeScreen()
                     1 -> CartScreen()
+                    2 -> ProfileScreen(navController)
+
                 }
                 Text(text = viewModel.tabItems[index].title)
 
@@ -91,5 +95,5 @@ fun MainScreen() {
 @Preview
 @Composable
 fun MainScreenPreview() {
-    MainScreen()
+    MainScreen(null)
 }
