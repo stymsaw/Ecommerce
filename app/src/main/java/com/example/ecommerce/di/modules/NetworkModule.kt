@@ -1,6 +1,6 @@
 package com.example.ecommerce.di.modules
 
-import com.example.ecommerce.data.api.PlatziAPI
+import com.example.ecommerce.data.retrofit.PlatziAPI
 import com.example.ecommerce.utils.Constants
 import dagger.Module
 import dagger.Provides

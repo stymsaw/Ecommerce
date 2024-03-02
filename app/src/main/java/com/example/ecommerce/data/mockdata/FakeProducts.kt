@@ -1,6 +1,6 @@
 package com.example.ecommerce.data.mockdata
 
-import com.example.ecommerce.data.models.response.product.ProductModel
+import com.example.ecommerce.data.models.product.ProductModel
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 

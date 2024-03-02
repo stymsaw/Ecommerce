@@ -1,8 +1,8 @@
-package com.example.ecommerce.data.api
+package com.example.ecommerce.data.retrofit
 
-import com.example.ecommerce.data.models.request.NewProduct
-import com.example.ecommerce.data.models.response.category.CategoryModel
-import com.example.ecommerce.data.models.response.product.ProductModel
+import com.example.ecommerce.data.models.create_product.CreateProduct
+import com.example.ecommerce.data.models.category.CategoryModel
+import com.example.ecommerce.data.models.product.ProductModel
 import com.example.ecommerce.utils.Constants
 import retrofit2.Response
 import retrofit2.http.Body
@@ -28,6 +28,6 @@ interface PlatziAPI {
 
 
     @POST(Constants.ALL_PRODUCTS)
-    suspend fun createProduct(@Body newProduct: NewProduct) : Response<ProductModel>
+    suspend fun createProduct(@Body createProduct: CreateProduct) : Response<ProductModel>
 
 }

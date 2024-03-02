@@ -6,7 +6,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.lifecycle.ViewModel
 import com.example.ecommerce.data.mockdata.FakeCategories
 import com.example.ecommerce.data.mockdata.TabItems
-import com.example.ecommerce.data.models.response.category.CategoryModel
+import com.example.ecommerce.data.models.category.CategoryModel
 
 class HomeScreenVM : ViewModel() {
 

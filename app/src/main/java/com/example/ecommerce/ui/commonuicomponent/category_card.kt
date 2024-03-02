@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.ecommerce.R
 import com.example.ecommerce.data.mockdata.FakeCategories
-import com.example.ecommerce.data.models.response.category.CategoryModel
+import com.example.ecommerce.data.models.category.CategoryModel
 
 @Composable
 fun CategoryCard(

@@ -1,4 +1,4 @@
-package com.example.ecommerce.data.models.response.category
+package com.example.ecommerce.data.models.category
 
 
 import com.google.gson.annotations.SerializedName

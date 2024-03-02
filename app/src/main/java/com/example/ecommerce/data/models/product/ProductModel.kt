@@ -1,10 +1,10 @@
-package com.example.ecommerce.data.models.response.product
+package com.example.ecommerce.data.models.product
 
 
 import com.google.gson.annotations.SerializedName
 import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
-import com.example.ecommerce.data.models.response.category.CategoryModel
+import com.example.ecommerce.data.models.category.CategoryModel
 
 @Parcelize
 data class ProductModel(

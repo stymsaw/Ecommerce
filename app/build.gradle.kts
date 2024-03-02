@@ -83,7 +83,7 @@ dependencies {
     implementation (libs.converter.gson)
 
     // define a BOM and its version
-    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.12.0"))
+    implementation(libs.okhttp.bom)
 
     // define any required OkHttp artifacts without version
     implementation("com.squareup.okhttp3:okhttp")
@@ -92,6 +92,13 @@ dependencies {
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
     implementation(libs.coil.compose)
+
+    val roomVersion = "2.4.3"
+    implementation (libs.androidx.room.runtime)
+    implementation (libs.androidx.room.ktx)
+    implementation (libs.androidx.runtime.livedata)
+    annotationProcessor (libs.androidx.room.compiler)
+    kapt ("androidx.room:room-compiler:2.6.1")
 
 
 }

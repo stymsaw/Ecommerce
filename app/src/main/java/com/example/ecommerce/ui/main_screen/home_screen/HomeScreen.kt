@@ -26,8 +26,8 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ecommerce.data.mockdata.FakeCategories
 import com.example.ecommerce.data.mockdata.FakeProducts
-import com.example.ecommerce.data.models.response.category.CategoryModel
-import com.example.ecommerce.data.models.response.product.ProductModel
+import com.example.ecommerce.data.models.category.CategoryModel
+import com.example.ecommerce.data.models.product.ProductModel
 import com.example.ecommerce.ui.commonuicomponent.CategoryCard
 import com.example.ecommerce.ui.commonuicomponent.ProductCard
 import com.example.ecommerce.viewmodel.HomeScreenVM

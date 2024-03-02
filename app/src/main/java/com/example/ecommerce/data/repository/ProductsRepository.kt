@@ -1,9 +1,9 @@
 package com.example.ecommerce.data.repository
 
-import com.example.ecommerce.data.api.PlatziAPI
-import com.example.ecommerce.data.models.request.NewProduct
-import com.example.ecommerce.data.models.response.category.CategoryModel
-import com.example.ecommerce.data.models.response.product.ProductModel
+import com.example.ecommerce.data.retrofit.PlatziAPI
+import com.example.ecommerce.data.models.create_product.CreateProduct
+import com.example.ecommerce.data.models.category.CategoryModel
+import com.example.ecommerce.data.models.product.ProductModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import retrofit2.Response
@@ -44,8 +44,8 @@ class ProductsRepository @Inject constructor(private val platziAPI: PlatziAPI) {
 
     }
 
-    suspend fun createProduct(newProduct: NewProduct): Response<ProductModel> {
-        val response = platziAPI.createProduct(newProduct)
+    suspend fun createProduct(createProduct: CreateProduct): Response<ProductModel> {
+        val response = platziAPI.createProduct(createProduct)
         if (response.isSuccessful && response.body() != null) {
             response.body()!!
             _products.emit(listOf(response.body()!!))

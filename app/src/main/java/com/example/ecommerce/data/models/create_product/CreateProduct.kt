@@ -1,4 +1,4 @@
-package com.example.ecommerce.data.models.request
+package com.example.ecommerce.data.models.create_product
 
 
 import com.google.gson.annotations.SerializedName
@@ -6,7 +6,7 @@ import kotlinx.parcelize.Parcelize
 import android.os.Parcelable
 
 @Parcelize
-data class NewProduct(
+data class CreateProduct(
     @SerializedName("categoryId")
     val categoryId: Int,
     @SerializedName("description")
