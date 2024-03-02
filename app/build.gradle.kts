@@ -83,7 +83,7 @@ dependencies {
     implementation (libs.converter.gson)
 
     // define a BOM and its version
-    implementation(libs.okhttp.bom)
+    implementation(platform(libs.okhttp.bom))
 
     // define any required OkHttp artifacts without version
     implementation("com.squareup.okhttp3:okhttp")
