@@ -12,11 +12,10 @@ import com.example.ecommerce.data.models.category.CategoryModel
 data class Product(
     @PrimaryKey
     val price: Int,
-    val category: CategoryModel,
     val description: String,
     val id: Int,
-    val images: List<String>,
     val title: String,
     val creationAt: String,
     val updatedAt: String
 )
+

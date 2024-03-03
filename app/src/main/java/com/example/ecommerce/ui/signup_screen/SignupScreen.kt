@@ -82,7 +82,7 @@ fun SignupScreen(navController: NavHostController?, viewModel: AuthViewModel?) {
                 placeholder = { Text("Enter email") },
                 keyboardOptions = KeyboardOptions(
                     keyboardType = KeyboardType.Email,
-                    imeAction = ImeAction.Done
+                    imeAction = ImeAction.Next
                 ),
                 onValueChange = { viewModel!!.email.value = it },
                 leadingIcon = {

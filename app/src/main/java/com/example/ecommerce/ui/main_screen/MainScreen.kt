@@ -56,7 +56,7 @@ fun MainScreen(navController: NavHostController?) {
 
                 when (index) {
 
-                    0 -> HomeScreen()
+                    0 -> HomeScreen(navController)
                     1 -> CartScreen()
                     2 -> ProfileScreen(navController)
 

@@ -7,16 +7,4 @@ import javax.inject.Inject
 @HiltAndroidApp
 class Ecommerce : Application() {
 
-
-
-    companion object {
-
-    }
-
-
-    override fun onCreate() {
-        super.onCreate()
-    }
-
-
 }
