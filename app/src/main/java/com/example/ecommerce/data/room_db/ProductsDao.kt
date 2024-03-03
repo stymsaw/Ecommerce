@@ -17,16 +17,16 @@ interface ProductsDao {
     suspend fun deleteAllProducts()
 
     @Delete
-    suspend fun deleteProduct(productModel: ProductModel)
+    suspend fun deleteProduct(productModel: Product)
     @Insert(onConflict = OnConflictStrategy.IGNORE) // <- Annotate the 'addUser' function below. Set the onConflict strategy to IGNORE so if exactly the same user exists, it will just ignore it.
-    suspend fun addProduct(productModel: ProductModel)
+    suspend fun addProduct(productModel: Product)
 
     @Update
-    suspend fun updateProduct(productModel: ProductModel)
+    suspend fun updateProduct(productModel: Product)
 
 
     @Query("SELECT * from product ORDER BY id ASC")
-    fun getProducts(): LiveData<List<ProductModel>>
+    fun getProducts(): LiveData<List<Product>>
 }
 
 
