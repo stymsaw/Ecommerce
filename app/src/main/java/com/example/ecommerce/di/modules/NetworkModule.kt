@@ -1,6 +1,6 @@
 package com.example.ecommerce.di.modules
 
-import com.example.ecommerce.data.retrofit.PlatziAPI
+import com.example.ecommerce.data.retrofit.EcommerceAPI
 import com.example.ecommerce.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -39,8 +39,8 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun providesPlatziAPI(retrofit: Retrofit): PlatziAPI {
-        return retrofit.create(PlatziAPI::class.java)
+    fun providesPlatziAPI(retrofit: Retrofit): EcommerceAPI {
+        return retrofit.create(EcommerceAPI::class.java)
     }
 
 }

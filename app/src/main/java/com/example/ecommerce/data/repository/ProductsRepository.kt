@@ -1,6 +1,6 @@
 package com.example.ecommerce.data.repository
 
-import com.example.ecommerce.data.retrofit.PlatziAPI
+import com.example.ecommerce.data.retrofit.EcommerceAPI
 import com.example.ecommerce.data.models.create_product.CreateProduct
 import com.example.ecommerce.data.models.category.CategoryModel
 import com.example.ecommerce.data.models.product.ProductModel
@@ -9,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import retrofit2.Response
 import javax.inject.Inject
 
-class ProductsRepository @Inject constructor(private val platziAPI: PlatziAPI) {
+class ProductsRepository @Inject constructor(private val ecommerceAPI: EcommerceAPI) {
 
     private val _products = MutableStateFlow<List<ProductModel>>(emptyList())
     private val _categories = MutableStateFlow<List<CategoryModel>>(emptyList())
@@ -21,13 +21,13 @@ class ProductsRepository @Inject constructor(private val platziAPI: PlatziAPI) {
 
 
     suspend fun getAllProducts() {
-        val response = platziAPI.getAllProducts()
+        val response = ecommerceAPI.getAllProducts()
         if (response.isSuccessful && response.body() != null)
             _products.emit(response.body()!!)
     }
 
     suspend fun getAllCategories() {
-        val response = platziAPI.getAllCategories()
+        val response = ecommerceAPI.getAllCategories()
         if (response.isSuccessful && response.body() != null)
             _categories.emit(response.body()!!)
     }
@@ -38,19 +38,17 @@ class ProductsRepository @Inject constructor(private val platziAPI: PlatziAPI) {
         categoryId: Int? = null,
     ) {
         val response =
-            platziAPI.getFilteredProducts(title = title, price = price, categoryId = categoryId)
+            ecommerceAPI.getFilteredProducts(title = title, price = price, categoryId = categoryId)
         if (response.isSuccessful && response.body() != null)
             _products.emit(response.body()!!)
-
     }
 
     suspend fun createProduct(createProduct: CreateProduct): Response<ProductModel> {
-        val response = platziAPI.createProduct(createProduct)
+        val response = ecommerceAPI.createProduct(createProduct)
         if (response.isSuccessful && response.body() != null) {
             response.body()!!
             _products.emit(listOf(response.body()!!))
         }
-
         return response
     }
 

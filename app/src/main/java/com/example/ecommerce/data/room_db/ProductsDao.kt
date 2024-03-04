@@ -9,24 +9,22 @@ import androidx.room.Query
 import androidx.room.Update
 import com.example.ecommerce.data.models.product.ProductModel
 
-
 @Dao
 interface ProductsDao {
-
     @Query("DELETE FROM product")
     suspend fun deleteAllProducts()
 
     @Delete
     suspend fun deleteProduct(productModel: Product)
-    @Insert(onConflict = OnConflictStrategy.IGNORE) // <- Annotate the 'addUser' function below. Set the onConflict strategy to IGNORE so if exactly the same user exists, it will just ignore it.
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addProduct(productModel: Product)
 
     @Update
     suspend fun updateProduct(productModel: Product)
 
-
     @Query("SELECT * from product ORDER BY id ASC")
     fun getProducts(): LiveData<List<Product>>
+
 }
 
 

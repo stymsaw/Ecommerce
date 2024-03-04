@@ -483,7 +483,6 @@ class FakeProducts {
             val gson = Gson()
             val listTyp = object : TypeToken<List<ProductModel?>>() {}.type
             return gson.fromJson(responseStr, listTyp)
-
         }
 
 
