@@ -4,6 +4,7 @@ import com.example.ecommerce.data.retrofit.EcommerceAPI
 import com.example.ecommerce.data.models.create_product.CreateProduct
 import com.example.ecommerce.data.models.category.CategoryModel
 import com.example.ecommerce.data.models.product.ProductModel
+import com.example.ecommerce.data.models.users.UserModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import retrofit2.Response
@@ -13,11 +14,15 @@ class ProductsRepository @Inject constructor(private val ecommerceAPI: Ecommerce
 
     private val _products = MutableStateFlow<List<ProductModel>>(emptyList())
     private val _categories = MutableStateFlow<List<CategoryModel>>(emptyList())
+    private val _users = MutableStateFlow<List<UserModel>>(emptyList())
     val products: StateFlow<List<ProductModel>>
         get() = _products
 
     val categories: StateFlow<List<CategoryModel>>
         get() = _categories
+
+    val users: StateFlow<List<UserModel>>
+        get() = _users
 
 
     suspend fun getAllProducts() {
@@ -30,6 +35,11 @@ class ProductsRepository @Inject constructor(private val ecommerceAPI: Ecommerce
         val response = ecommerceAPI.getAllCategories()
         if (response.isSuccessful && response.body() != null)
             _categories.emit(response.body()!!)
+    }
+    suspend fun getAllUsers() {
+        val response = ecommerceAPI.getAllUsers()
+        if (response.isSuccessful && response.body() != null)
+            _users.emit(response.body()!!)
     }
 
     suspend fun getFilteredProducts(

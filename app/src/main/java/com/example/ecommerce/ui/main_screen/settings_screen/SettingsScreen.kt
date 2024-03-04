@@ -1,6 +1,5 @@
-package com.example.ecommerce.ui.main_screen.profile_screen
+package com.example.ecommerce.ui.main_screen.settings_screen
 
-import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -9,7 +8,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
@@ -29,7 +27,7 @@ import com.example.ecommerce.R
 import com.example.ecommerce.navigation.Pages
 
 @Composable
-fun ProfileScreen(navController: NavHostController?) {
+fun SettingsScreen(navController: NavHostController?) {
 
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -63,8 +61,8 @@ fun ProfileScreen(navController: NavHostController?) {
 
 @Preview(showSystemUi = true, showBackground = true)
 @Composable
-private fun ProfileScreenPreview() {
+private fun SettingsScreenPreview() {
 
-    ProfileScreen(null)
+    SettingsScreen(null)
 
 }

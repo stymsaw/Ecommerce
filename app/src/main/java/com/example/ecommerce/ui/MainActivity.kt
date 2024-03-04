@@ -25,7 +25,7 @@ class MainActivity() : ComponentActivity() {
                 Surface(
                     Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
-                    EcommerceNavHost(mainVM, navController)
+                    EcommerceNavHost(navController)
                 }
             }
         }

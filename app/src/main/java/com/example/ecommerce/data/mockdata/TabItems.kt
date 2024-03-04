@@ -13,9 +13,7 @@ import androidx.compose.material.icons.outlined.ShoppingCart
 import androidx.compose.ui.graphics.vector.ImageVector
 
 data class TabItem(
-    val title: String,
-    val selectedIcon: ImageVector,
-    val unSelectedIcon: ImageVector
+    val title: String, val selectedIcon: ImageVector, val unSelectedIcon: ImageVector
 )
 
 object TabItems {
@@ -23,9 +21,7 @@ object TabItems {
     val tabs = listOf(
 
         TabItem(
-            title = "Home",
-            selectedIcon = Icons.Filled.Home,
-            unSelectedIcon = Icons.Outlined.Home
+            title = "Home", selectedIcon = Icons.Filled.Home, unSelectedIcon = Icons.Outlined.Home
         ),
         TabItem(
             title = "Cart",
@@ -33,12 +29,17 @@ object TabItems {
             unSelectedIcon = Icons.Outlined.ShoppingCart
         ),
         TabItem(
-            title = "Profile",
+            title = "Users",
             selectedIcon = Icons.Filled.AccountCircle,
             unSelectedIcon = Icons.Outlined.AccountCircle
         ),
+        TabItem(
+            title = "Settings",
+            selectedIcon = Icons.Filled.Settings,
+            unSelectedIcon = Icons.Outlined.Settings
+        ),
 
 
-    )
+        )
 
 }

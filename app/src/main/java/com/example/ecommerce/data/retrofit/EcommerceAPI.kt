@@ -3,6 +3,7 @@ package com.example.ecommerce.data.retrofit
 import com.example.ecommerce.data.models.create_product.CreateProduct
 import com.example.ecommerce.data.models.category.CategoryModel
 import com.example.ecommerce.data.models.product.ProductModel
+import com.example.ecommerce.data.models.users.UserModel
 import com.example.ecommerce.utils.Constants
 import retrofit2.Response
 import retrofit2.http.Body
@@ -15,8 +16,12 @@ interface EcommerceAPI {
 
     @GET(Constants.ALL_PRODUCTS)
     suspend fun getAllProducts(): Response<List<ProductModel>>
+
     @GET(Constants.GET_CATEGORIES)
     suspend fun getAllCategories(): Response<List<CategoryModel>>
+
+    @GET(Constants.GET_USERS)
+    suspend fun getAllUsers(): Response<List<UserModel>>
 
 
     @GET(Constants.ALL_PRODUCTS)
@@ -28,6 +33,6 @@ interface EcommerceAPI {
 
 
     @POST(Constants.ALL_PRODUCTS)
-    suspend fun createProduct(@Body createProduct: CreateProduct) : Response<ProductModel>
+    suspend fun createProduct(@Body createProduct: CreateProduct): Response<ProductModel>
 
 }

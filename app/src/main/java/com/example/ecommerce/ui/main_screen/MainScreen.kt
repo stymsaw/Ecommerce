@@ -20,8 +20,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.ecommerce.ui.main_screen.cart_screen.CartScreen
+import com.example.ecommerce.ui.main_screen.users_screen.UsersScreen
 import com.example.ecommerce.ui.main_screen.home_screen.HomeScreen
-import com.example.ecommerce.ui.main_screen.profile_screen.ProfileScreen
+import com.example.ecommerce.ui.main_screen.settings_screen.SettingsScreen
 import com.example.ecommerce.viewmodel.HomeScreenVM
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -53,15 +54,12 @@ fun MainScreen(navController: NavHostController?) {
                     .fillMaxWidth()
                     .weight(1f)
             ) { index ->
-
                 when (index) {
-
                     0 -> HomeScreen(navController)
                     1 -> CartScreen()
-                    2 -> ProfileScreen(navController)
-
+                    2 -> UsersScreen(navController)
+                    3 -> SettingsScreen(navController)
                 }
-                Text(text = viewModel.tabItems[index].title)
 
 
             }

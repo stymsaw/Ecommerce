@@ -6,33 +6,31 @@ import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.example.ecommerce.ui.login_screen.LoginScreen
 import com.example.ecommerce.ui.main_screen.MainScreen
-import com.example.ecommerce.ui.main_screen.profile_screen.ProfileScreen
+import com.example.ecommerce.ui.main_screen.settings_screen.SettingsScreen
 import com.example.ecommerce.ui.product_details_screen.ProductDetailsScreen
 import com.example.ecommerce.ui.signup_screen.SignupScreen
 import com.example.ecommerce.ui.splashscreen.SplashScreen
 import com.example.ecommerce.viewmodel.AuthViewModel
-import com.example.ecommerce.viewmodel.MainVM
-import com.example.ecommerce.viewmodel.SplashScreenVM
 
 enum class Pages {
-    SPLASH, HOME, LOGIN, PROFILE_SCREEN, SIGNUP, PRODUCT_DETAILS
+    SPLASH, HOME, LOGIN, SETTINGS_SCREEN, SIGNUP, PRODUCT_DETAILS
 }
 
 @Composable
-fun EcommerceNavHost(mainVM: MainVM, navController: NavHostController) {
+fun EcommerceNavHost(navController: NavHostController) {
 
     val authViewModel = viewModel<AuthViewModel>()
-
 
     NavHost(
         navController = navController, startDestination = Pages.SPLASH.name,
     ) {
 
         composable(route = Pages.SPLASH.name) { SplashScreen(navController = navController) }
+        composable(route = Pages.HOME.name) { MainScreen(navController = navController) }
+        composable(route = Pages.SETTINGS_SCREEN.name) { SettingsScreen(navController = navController) }
         composable(route = Pages.LOGIN.name) {
             LoginScreen(
                 navController = navController, viewModel = authViewModel
@@ -43,8 +41,6 @@ fun EcommerceNavHost(mainVM: MainVM, navController: NavHostController) {
                 navController = navController, viewModel = authViewModel
             )
         }
-        composable(route = Pages.PROFILE_SCREEN.name) { ProfileScreen(navController = navController) }
-        composable(route = Pages.HOME.name) { MainScreen(navController = navController) }
 
         composable(
             route = "${Pages.PRODUCT_DETAILS.name}/{productID}",
