@@ -34,7 +34,7 @@ object TabItems {
             unSelectedIcon = Icons.Outlined.AccountCircle
         ),
         TabItem(
-            title = "Settings",
+            title = "Profile",
             selectedIcon = Icons.Filled.Settings,
             unSelectedIcon = Icons.Outlined.Settings
         ),
