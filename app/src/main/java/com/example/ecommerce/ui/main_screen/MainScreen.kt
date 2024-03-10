@@ -17,6 +17,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import com.example.ecommerce.ui.main_screen.cart_screen.CartScreen
@@ -29,10 +30,8 @@ import com.example.ecommerce.viewmodel.HomeScreenVM
 @Composable
 fun MainScreen(navController: NavHostController?) {
 
-    val viewModel = viewModel<HomeScreenVM>()
-    val pagerState = rememberPagerState {
-        viewModel.tabItems.size
-    }
+    val viewModel = hiltViewModel<HomeScreenVM>()
+    val pagerState = rememberPagerState { 4 }
 
     LaunchedEffect(viewModel.selectedTabIndex.intValue) {
         pagerState.animateScrollToPage(viewModel.selectedTabIndex.intValue)
@@ -49,8 +48,7 @@ fun MainScreen(navController: NavHostController?) {
     ) {
         Column {
             HorizontalPager(
-                state = pagerState,
-                modifier = Modifier
+                state = pagerState, modifier = Modifier
                     .fillMaxWidth()
                     .weight(1f)
             ) { index ->
@@ -65,21 +63,16 @@ fun MainScreen(navController: NavHostController?) {
             }
             TabRow(selectedTabIndex = viewModel.selectedTabIndex.intValue) {
                 viewModel.tabItems.forEachIndexed { index, tabItem ->
-                    Tab(
-                        selected = viewModel.selectedTabIndex.intValue == index,
-                        onClick = {
-                            viewModel.changeSelectedIndex(index)
-                        },
-                        text = {
-                            Text(text = tabItem.title)
-                        },
-                        icon = {
-                            Icon(
-                                imageVector = if (index == viewModel.selectedTabIndex.intValue) tabItem.selectedIcon
-                                else tabItem.unSelectedIcon,
-                                contentDescription = tabItem.title
-                            )
-                        }
+                    Tab(selected = viewModel.selectedTabIndex.intValue == index, onClick = {
+                        viewModel.changeSelectedIndex(index)
+                    }, text = {
+                        Text(text = tabItem.title)
+                    }, icon = {
+                        Icon(
+                            imageVector = if (index == viewModel.selectedTabIndex.intValue) tabItem.selectedIcon
+                            else tabItem.unSelectedIcon, contentDescription = tabItem.title
+                        )
+                    }
 
                     )
                 }

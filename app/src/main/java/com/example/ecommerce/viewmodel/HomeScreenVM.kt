@@ -4,6 +4,7 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.LiveData
@@ -14,24 +15,32 @@ import com.example.ecommerce.Ecommerce
 import com.example.ecommerce.data.mockdata.FakeCategories
 import com.example.ecommerce.data.mockdata.TabItems
 import com.example.ecommerce.data.models.category.CategoryModel
+import com.example.ecommerce.data.models.product.ProductModel
 import com.example.ecommerce.data.models.users.UserModel
 import com.example.ecommerce.data.repository.ProductsRepository
 import com.example.ecommerce.data.retrofit.EcommerceAPI
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class HomeScreenVM : ViewModel() {
+@HiltViewModel
+class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : ViewModel() {
 
     var users: MutableState<List<UserModel>> = mutableStateOf(emptyList())
     private var _isLoading = mutableStateOf(true)
     var isLoading: State<Boolean> = _isLoading
 
     var selectedTabIndex = mutableIntStateOf(0)
-        private set
 
     var tabItems = TabItems.tabs
-
-
     var categories: List<CategoryModel> = FakeCategories.getCategories()
+
+    init {
+        viewModelScope.launch {
+            repository.getAllProducts()
+            repository.getAllCategories()
+        }
+    }
 
     fun changeSelectedIndex(index: Int) {
         selectedTabIndex.intValue = index
@@ -45,6 +54,14 @@ class HomeScreenVM : ViewModel() {
                 users.value = response.body()!!
             }
             _isLoading.value = false
+        }
+    }
+
+    val productss: List<ProductModel> = emptyList()
+    fun getAllUsers2() {
+        val repository: ProductsRepository = ProductsRepository(Ecommerce.retrofit)
+        viewModelScope.launch {
+
         }
     }
 

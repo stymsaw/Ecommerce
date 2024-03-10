@@ -4,6 +4,7 @@ agp = "8.2.1"
 coil-compose = "2.6.0"
 core-splashscreen = "1.0.1"
 hilt-android = "2.48.1"
+hiltNavigationCompose = "1.2.0"
 kotlin = "1.9.20"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -21,6 +22,7 @@ runtimeLivedata = "1.6.2"
 
 [libraries]
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
+androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
