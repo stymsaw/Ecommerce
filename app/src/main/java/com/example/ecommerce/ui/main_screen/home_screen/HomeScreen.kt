@@ -69,13 +69,14 @@ fun HomeScreen(
 
         )
 
-        HorizontalPager(
-            state = pagerState,
-            pageSize = PageSize.Fixed(180.dp)
-        ) {
-            val item = categories[it]
-            CategoryCard(categoryName = item.name, categoryImage = item.image)
-        }
+        if (categories.isNotEmpty())
+            HorizontalPager(
+                state = pagerState,
+                pageSize = PageSize.Fixed(180.dp)
+            ) {
+                val item = categories[it]
+                CategoryCard(categoryName = item.name, categoryImage = item.image)
+            }
 
         Box(modifier = Modifier.height(30.dp))
         Text(
