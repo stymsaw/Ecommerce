@@ -52,7 +52,7 @@ fun HomeScreen(
     val products by viewModel.repository.products.collectAsState()
     val categories by viewModel.repository.categories.collectAsState()
     val pagerState = rememberPagerState(pageCount = {
-        viewModel.categories.size
+        categories.size
     })
 
     Column(

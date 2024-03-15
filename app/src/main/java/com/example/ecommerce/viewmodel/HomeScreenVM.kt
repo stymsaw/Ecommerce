@@ -33,7 +33,7 @@ class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : Vie
     var selectedTabIndex = mutableIntStateOf(0)
 
     var tabItems = TabItems.tabs
-    var categories: List<CategoryModel> = FakeCategories.getCategories()
+//    var categories: List<CategoryModel> = FakeCategories.getCategories()
 
     init {
         viewModelScope.launch {
