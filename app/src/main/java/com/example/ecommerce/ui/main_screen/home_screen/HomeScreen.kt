@@ -87,21 +87,23 @@ fun HomeScreen(
             modifier = Modifier
                 .padding(start = 10.dp)
         )
-        LazyVerticalGrid(
-            columns = GridCells.Fixed(2)
-        ) {
-            itemsIndexed(products) { index, it ->
-                ProductCard(
-                    title = it.title,
-                    images = it.images,
-                    price = it.price.toString(),
-                    categoryName = it.category.name,
-                    onClick = {
-                        navController!!.navigate("${Pages.PRODUCT_DETAILS.name}/${index}")
-                    }
-                )
+
+        if (products.isNotEmpty())
+            LazyVerticalGrid(
+                columns = GridCells.Fixed(2)
+            ) {
+                itemsIndexed(products) { index, it ->
+                    ProductCard(
+                        title = it.title,
+                        images = it.images,
+                        price = it.price.toString(),
+                        categoryName = it.category.name,
+                        onClick = {
+                            navController!!.navigate("${Pages.PRODUCT_DETAILS.name}/${index}")
+                        }
+                    )
+                }
             }
-        }
     }
 
 }
