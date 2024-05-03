@@ -9,6 +9,7 @@ A simple e-commerce app that connects local retailers with people around
 <img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/cart.png" height="500" width="250">
 <img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/home.png" height="500" width="250">
 <img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/users.png" height="500" width="250">
+<img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/Screenshot_20240503_205701.png" height="500" width="250">
 </p>
 
 - MVVM architecture
