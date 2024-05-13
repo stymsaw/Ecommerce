@@ -28,12 +28,12 @@ import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavHostController? = null) {
-    val viewModel = viewModel<SplashScreenVM>()
-    LaunchedEffect(true) {
 
+    val viewModel = viewModel<SplashScreenVM>()
+
+    LaunchedEffect(true) {
         delay(2000)
         navController?.navigate(Pages.HOME.name)
-
     }
 
     Column(
@@ -48,16 +48,6 @@ fun SplashScreen(navController: NavHostController? = null) {
                 .size(200.dp)
                 .align(Alignment.CenterHorizontally)
         )
-//        ElevatedButton(
-//            onClick = { viewModel.changeBackgroundColor() },
-//            modifier = Modifier
-//                .align(Alignment.CenterHorizontally)
-//
-//        ) {
-//            Text(
-//                text = "change background",
-//            )
-//        }
 
 
     }

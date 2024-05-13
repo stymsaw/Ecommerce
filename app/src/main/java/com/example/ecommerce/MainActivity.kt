@@ -1,4 +1,4 @@
-package com.example.ecommerce.ui
+package com.example.ecommerce
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,11 +19,16 @@ class MainActivity() : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val mainVM = ViewModelProvider(this)[MainVM::class.java]
+
+
+
+
         setContent {
             val navController = rememberNavController()
             EcommerceTheme {
                 Surface(
-                    Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
+                    Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
                 ) {
                     EcommerceNavHost(navController)
                 }

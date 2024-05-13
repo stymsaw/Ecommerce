@@ -31,10 +31,11 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
 import com.example.ecommerce.R
+import com.example.ecommerce.ui.theme.app_blue
 
 @Composable
 fun UserItem(
-    image: String = ""
+    image: String = "",
 ) {
 
     Column(
@@ -54,8 +55,8 @@ fun UserItem(
                 .clip(CircleShape)
         )
 
-        Text(text = "user_name")
-        Text(text = "Follow Button")
+        Text(text = "user_name", color = Color.White)
+        Text(text = "Follow Button", color = Color.White)
 
 
     }
@@ -63,7 +64,7 @@ fun UserItem(
 }
 
 
-@Preview(showSystemUi = true)
+@Preview(showSystemUi = true, showBackground = true)
 @Composable
 fun UserItemPreview() {
 

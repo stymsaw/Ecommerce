@@ -9,19 +9,19 @@ import com.example.ecommerce.data.models.category.CategoryModel
 @Parcelize
 data class ProductModel(
     @SerializedName("category")
-    val category: CategoryModel,
+    val category: CategoryModel = CategoryModel(id = 1, name = "shirt", image = ""),
     @SerializedName("description")
-    val description: String,
+    val description: String = "",
     @SerializedName("id")
-    val id: Int,
+    val id: Int = 1,
     @SerializedName("images")
-    val images: List<String>,
+    val images: List<String> = listOf("demo 1", "demo 2"),
     @SerializedName("price")
-    val price: Int,
+    val price: Int = 1230,
     @SerializedName("title")
-    val title: String,
+    val title: String = "",
     @SerializedName("creationAt")
-    val creationAt: String,
+    val creationAt: String = "",
     @SerializedName("updatedAt")
-    val updatedAt: String
+    val updatedAt: String = "",
 ) : Parcelable

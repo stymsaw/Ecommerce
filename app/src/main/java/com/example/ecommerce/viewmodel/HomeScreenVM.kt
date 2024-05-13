@@ -27,8 +27,9 @@ import javax.inject.Inject
 class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : ViewModel() {
 
     var users: MutableState<List<UserModel>> = mutableStateOf(emptyList())
-    private var _isLoading = mutableStateOf(true)
-    var isLoading: State<Boolean> = _isLoading
+
+    var isLoading  = MutableLiveData(false)
+
 
     var selectedTabIndex = mutableIntStateOf(0)
 
@@ -47,14 +48,14 @@ class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : Vie
     }
 
     fun getAllUsers() {
-        _isLoading.value = true
+        isLoading.value = true
         viewModelScope.launch {
             val response = Ecommerce.retrofit.getAllUsers()
             if (response.isSuccessful && response.body() != null) {
                 users.value = response.body()!!
             }
-            _isLoading.value = false
         }
+        isLoading.value = false
     }
 
     val productss: List<ProductModel> = emptyList()

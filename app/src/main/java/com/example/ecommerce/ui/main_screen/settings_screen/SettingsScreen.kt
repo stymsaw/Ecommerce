@@ -1,6 +1,7 @@
 package com.example.ecommerce.ui.main_screen.settings_screen
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -25,12 +26,16 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.ecommerce.R
 import com.example.ecommerce.navigation.Pages
+import com.example.ecommerce.ui.theme.app_blue
+import com.example.ecommerce.ui.theme.app_white
 
 @Composable
 fun SettingsScreen(navController: NavHostController?) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier
+            .background(app_blue)
+            .fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceEvenly
     ) {
@@ -46,15 +51,35 @@ fun SettingsScreen(navController: NavHostController?) {
                     .border(2.dp, Color.Gray, shape = CircleShape)
             )
             Box(Modifier.width(20.dp))
-            Text(text = "Satya Saw", fontSize = 28.sp)
+
+            Text(
+                text = "Satya Saw",
+                fontSize = 28.sp,
+                color = app_white
+            )
 
         }
-        Text(text = "Login", fontSize = 24.sp, modifier = Modifier.clickable {
-            navController?.navigate(Pages.LOGIN.name)
-        })
-        Text(text = "Sign up", fontSize = 24.sp, modifier = Modifier.clickable {
-            navController?.navigate(Pages.SIGNUP.name) })
-        Text(text = "Settings", fontSize = 24.sp, modifier = Modifier.clickable { })
+        Text(
+            text = "Login",
+            fontSize = 24.sp,
+            color = app_white,
+            modifier = Modifier.clickable {
+                navController?.navigate(Pages.LOGIN.name)
+            }
+        )
+        Text(
+            text = "Sign up",
+            fontSize = 24.sp,
+            color = app_white,
+            modifier = Modifier.clickable {
+                navController?.navigate(Pages.SIGNUP.name)
+            }
+        )
+        Text(
+            text = "Settings",
+            fontSize = 24.sp,
+            color = app_white,
+            modifier = Modifier.clickable { })
     }
 
 }

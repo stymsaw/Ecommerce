@@ -50,8 +50,7 @@ fun EcommerceNavHost(navController: NavHostController) {
         ) {
             val productID = it.arguments?.getString("productID") ?: ""
             ProductDetailsScreen(
-                navController = navController,
-                productID = productID.toInt()
+                navController = navController, productID = productID.toInt()
             )
         }
 

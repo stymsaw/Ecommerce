@@ -2,6 +2,7 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+//    id("com.google.devtools.ksp")
     kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
@@ -72,6 +73,7 @@ dependencies {
     debugImplementation(libs.ui.tooling)
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.hilt.android)
+
     kapt(libs.hilt.android.compiler)
 
     implementation(libs.retrofit)
@@ -87,19 +89,18 @@ dependencies {
     implementation(platform(libs.okhttp.bom))
 
     // define any required OkHttp artifacts without version
-    implementation("com.squareup.okhttp3:okhttp")
-    implementation("com.squareup.okhttp3:logging-interceptor")
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
     implementation(libs.coil.compose)
 
-    val roomVersion = "2.4.3"
     implementation (libs.androidx.room.runtime)
     implementation (libs.androidx.room.ktx)
     implementation (libs.androidx.runtime.livedata)
     annotationProcessor (libs.androidx.room.compiler)
-    kapt ("androidx.room:room-compiler:2.6.1")
+    kapt (libs.androidx.room.compiler.v261)
 
 
 }

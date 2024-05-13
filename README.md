@@ -4,7 +4,6 @@
 
 A simple e-commerce app that connects local retailers with people around
 
-
 <p>
 <img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/cart.png" height="500" width="250">
 <img src="https://github.com/stymsaw/Ecommerce/blob/master/assets/home.png" height="500" width="250">
