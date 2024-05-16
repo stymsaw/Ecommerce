@@ -22,6 +22,9 @@ jobs:
           distribution: 'temurin'
           java-version: '11'
 
+      - name: Grant execute permission for gradlew
+        run: chmod +x ./gradlew
+
       - name: Cache Gradle packages
         uses: actions/cache@v2
         with:
@@ -35,5 +38,5 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew build
 
-# testing CI CD
-
+      - name: Run Unit Tests
+        run: ./gradlew test
