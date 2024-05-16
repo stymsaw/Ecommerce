@@ -11,6 +11,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.material3.LinearProgressIndicator
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
@@ -30,24 +31,20 @@ fun UsersScreen(
     users: List<String> = listOf("", "", "", "", "", "", "", "", "", "", "", ""),
     viewModel: HomeScreenVM = hiltViewModel<HomeScreenVM>(),
 ) {
-    val userList by viewModel.users
-    val isLoading by viewModel.isLoading.observeAsState()
+    val userList by viewModel.users.collectAsState()
 
-    LaunchedEffect(key1 = true) {
-        viewModel.getAllUsers()
-    }
 
     Column(
         modifier = Modifier.background(app_blue), horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
         Box(modifier = Modifier.height(20.dp))
-        if (isLoading!!) LinearProgressIndicator()
 
-        LazyVerticalGrid(
+        if (userList.isEmpty()) LinearProgressIndicator()
+        else LazyVerticalGrid(
             columns = GridCells.Fixed(2)
         ) {
-            itemsIndexed(userList) { index, it ->
+            itemsIndexed(userList) { _, it ->
                 UserItem(image = it.avatar)
             }
         }

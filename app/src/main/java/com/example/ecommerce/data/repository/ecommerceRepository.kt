@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.StateFlow
 import retrofit2.Response
 import javax.inject.Inject
 
-class ProductsRepository @Inject constructor(private val ecommerceAPI: EcommerceAPI) {
+class ecommerceRepository @Inject constructor(private val ecommerceAPI: EcommerceAPI) {
 
     private val _products = MutableStateFlow<List<ProductModel>>(emptyList())
     private val _singleProducts = MutableStateFlow<ProductModel?>(null)
@@ -31,11 +31,13 @@ class ProductsRepository @Inject constructor(private val ecommerceAPI: Ecommerce
 
     val categories: StateFlow<List<CategoryModel>>
         get() = _categories
+
     val singleCategory: StateFlow<CategoryModel?>
         get() = _singleCategory
 
     val users: StateFlow<List<UserModel>>
         get() = _users
+
     val user: StateFlow<UserModel?>
         get() = _singleUser
 

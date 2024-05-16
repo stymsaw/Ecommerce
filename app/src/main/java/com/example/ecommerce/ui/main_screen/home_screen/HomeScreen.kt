@@ -13,6 +13,7 @@ import androidx.compose.foundation.lazy.grid.itemsIndexed
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PageSize
 import androidx.compose.foundation.pager.rememberPagerState
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -42,9 +43,13 @@ fun HomeScreen(
 ) {
 
 
-    val products by viewModel.repository.products.collectAsState()
-    val categories by viewModel.repository.categories.collectAsState()
+    val products by viewModel.products.collectAsState()
+    val categories by viewModel.categories.collectAsState()
     val pagerState = rememberPagerState(pageCount = { categories.size })
+
+    val uiState = viewModel.uiState.collectAsState()
+
+
 
     Column(
         modifier = Modifier
@@ -60,7 +65,8 @@ fun HomeScreen(
             modifier = Modifier.padding(start = 10.dp, top = 10.dp, bottom = 10.dp)
         )
 
-        if (categories.isNotEmpty()) MyHorizontalPager(pagerState = pagerState, items = categories)
+        if (products.isEmpty()) CircularProgressIndicator(modifier = Modifier.fillMaxSize())
+        else MyHorizontalPager(pagerState = pagerState, items = categories)
 
         Box(modifier = Modifier.height(30.dp))
         Text(
@@ -68,14 +74,12 @@ fun HomeScreen(
             fontSize = 18.sp,
             color = app_white,
             fontWeight = FontWeight.Bold,
-            modifier = Modifier.padding(start = 10.dp)
+            modifier = Modifier.padding(start = 10.dp),
         )
 
-        if (products.isNotEmpty())
-            MyLazyGrid(
-                navController = navController,
-                products = products
-            )
+        if (products.isNotEmpty()) MyLazyGrid(
+            navController = navController, products = products
+        )
 
     }
 

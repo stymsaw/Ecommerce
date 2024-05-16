@@ -1,34 +1,41 @@
 package com.example.ecommerce.viewmodel
 
-import androidx.compose.foundation.ExperimentalFoundationApi
-import androidx.compose.foundation.pager.rememberPagerState
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.State
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.mutableStateOf
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.ecommerce.Ecommerce
-import com.example.ecommerce.data.mockdata.FakeCategories
 import com.example.ecommerce.data.mockdata.TabItems
 import com.example.ecommerce.data.models.category.CategoryModel
 import com.example.ecommerce.data.models.product.ProductModel
 import com.example.ecommerce.data.models.users.UserModel
-import com.example.ecommerce.data.repository.ProductsRepository
-import com.example.ecommerce.data.retrofit.EcommerceAPI
+import com.example.ecommerce.data.repository.ecommerceRepository
+import com.example.ecommerce.ui.main_screen.home_screen.HomeScreenUIState
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : ViewModel() {
+class HomeScreenVM @Inject constructor(private val repository: ecommerceRepository) : ViewModel() {
 
-    var users: MutableState<List<UserModel>> = mutableStateOf(emptyList())
 
-    var isLoading  = MutableLiveData(false)
+    val products: StateFlow<List<ProductModel>>
+        get() = repository.products
+
+    val categories: StateFlow<List<CategoryModel>>
+        get() = repository.categories
+
+    val users: StateFlow<List<UserModel>>
+        get() = repository.users
+
+
+    private var _uiState = MutableStateFlow(HomeScreenUIState())
+    val uiState: StateFlow<HomeScreenUIState> = _uiState.asStateFlow()
+
+
+    var isLoading = MutableLiveData(false)
 
 
     var selectedTabIndex = mutableIntStateOf(0)
@@ -40,6 +47,7 @@ class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : Vie
         viewModelScope.launch {
             repository.getAllProducts()
             repository.getAllCategories()
+            repository.getAllUsers()
         }
     }
 
@@ -47,23 +55,7 @@ class HomeScreenVM @Inject constructor(val repository: ProductsRepository) : Vie
         selectedTabIndex.intValue = index
     }
 
-    fun getAllUsers() {
-        isLoading.value = true
-        viewModelScope.launch {
-            val response = Ecommerce.retrofit.getAllUsers()
-            if (response.isSuccessful && response.body() != null) {
-                users.value = response.body()!!
-            }
-        }
-        isLoading.value = false
-    }
 
-    val productss: List<ProductModel> = emptyList()
-    fun getAllUsers2() {
-        val repository: ProductsRepository = ProductsRepository(Ecommerce.retrofit)
-        viewModelScope.launch {
 
-        }
-    }
 
 }
