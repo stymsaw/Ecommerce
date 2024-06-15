@@ -18,7 +18,7 @@ import retrofit2.http.Part
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface EcommerceAPI {
+interface EcommerceAPI  {
 
     //    product end-points
     @GET(Constants.PRODUCTS)

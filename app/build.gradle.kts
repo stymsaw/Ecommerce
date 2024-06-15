@@ -1,17 +1,21 @@
-@Suppress("DSL_SCOPE_VIOLATION") // TODO: Remove once KTIJ-19369 is fixed
+
+
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-//    id("com.google.devtools.ksp")
-    kotlin("kapt")
     id("com.google.dagger.hilt.android")
     id("kotlin-parcelize")
+    alias(libs.plugins.compose.compiler)
+    id("com.google.devtools.ksp")
 
 }
 
 android {
     namespace = "com.example.ecommerce"
     compileSdk = 34
+
+
 
     defaultConfig {
         applicationId = "com.example.ecommerce"
@@ -24,7 +28,9 @@ android {
         vectorDrawables {
             useSupportLibrary = true
         }
+
     }
+
 
     buildTypes {
         release {
@@ -33,19 +39,25 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_18
+        targetCompatibility = JavaVersion.VERSION_18
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "18"
     }
     buildFeatures {
         compose = true
     }
     composeOptions {
+//        enableStrongSkippingMode = true
+//
+//        reportsDestination = layout.buildDirectory.dir("compose_compiler")
+//        stabilityConfigurationFile = rootProject.layout.projectDirectory.file("stability_config.conf")
         kotlinCompilerExtensionVersion = "1.5.5"
     }
     packaging {
@@ -54,6 +66,8 @@ android {
         }
     }
 }
+
+
 
 dependencies {
 
@@ -74,7 +88,7 @@ dependencies {
     debugImplementation(libs.ui.test.manifest)
     implementation(libs.hilt.android)
 
-    kapt(libs.hilt.android.compiler)
+    ksp(libs.hilt.android.compiler)
 
     implementation(libs.retrofit)
     implementation(libs.androidx.core.splashscreen)
@@ -93,18 +107,18 @@ dependencies {
     implementation(libs.logging.interceptor)
 
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    implementation(("androidx.compose.material:material-icons-extended:1.6.0-beta03"))
+    implementation(libs.androidx.material.icons.extended)
     implementation(libs.coil.compose)
 
     implementation (libs.androidx.room.runtime)
     implementation (libs.androidx.room.ktx)
     implementation (libs.androidx.runtime.livedata)
     annotationProcessor (libs.androidx.room.compiler)
-    kapt (libs.androidx.room.compiler.v261)
+    ksp (libs.androidx.room.compiler.v261)
 
 
 }
-
-kapt {
-    correctErrorTypes = true
-}
+//
+//kapt {
+//    correctErrorTypes = true
+//}

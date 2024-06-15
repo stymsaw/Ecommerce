@@ -36,6 +36,7 @@ fun EcommerceNavHost(navController: NavHostController) {
                 navController = navController, viewModel = authViewModel
             )
         }
+
         composable(route = Pages.SIGNUP.name) {
             SignupScreen(
                 navController = navController, viewModel = authViewModel

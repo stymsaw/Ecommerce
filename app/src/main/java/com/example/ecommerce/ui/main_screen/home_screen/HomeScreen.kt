@@ -65,7 +65,11 @@ fun HomeScreen(
             modifier = Modifier.padding(start = 10.dp, top = 10.dp, bottom = 10.dp)
         )
 
-        if (products.isEmpty()) CircularProgressIndicator(modifier = Modifier.fillMaxSize())
+        if (products.isEmpty()) CircularProgressIndicator(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(100.dp)
+        )
         else MyHorizontalPager(pagerState = pagerState, items = categories)
 
         Box(modifier = Modifier.height(30.dp))

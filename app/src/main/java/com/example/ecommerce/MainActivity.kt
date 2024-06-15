@@ -20,9 +20,6 @@ class MainActivity() : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val mainVM = ViewModelProvider(this)[MainVM::class.java]
 
-
-
-
         setContent {
             val navController = rememberNavController()
             EcommerceTheme {

@@ -2,7 +2,7 @@ package com.example.ecommerce.viewmodel
 
 import androidx.lifecycle.ViewModel
 import com.example.ecommerce.data.models.product.ProductModel
-import com.example.ecommerce.data.repository.ecommerceRepository
+import com.example.ecommerce.data.repository.EcommerceRepository
 import androidx.lifecycle.viewModelScope
 import com.example.ecommerce.data.models.create_product.CreateProduct
 import com.example.ecommerce.data.models.category.CategoryModel
@@ -12,7 +12,7 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class MainVM @Inject constructor(private val repository: ecommerceRepository) : ViewModel() {
+class MainVM @Inject constructor(private val repository: EcommerceRepository) : ViewModel() {
 
     val products: StateFlow<List<ProductModel>>
         get() = repository.products

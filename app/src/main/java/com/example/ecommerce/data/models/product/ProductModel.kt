@@ -17,7 +17,7 @@ data class ProductModel(
     @SerializedName("images")
     val images: List<String> = listOf("demo 1", "demo 2"),
     @SerializedName("price")
-    val price: Int = 1230,
+    val price: Long = 1230,
     @SerializedName("title")
     val title: String = "",
     @SerializedName("creationAt")

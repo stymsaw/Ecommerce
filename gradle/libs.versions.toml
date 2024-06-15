@@ -1,30 +1,32 @@
 [versions]
 #agp = "8.3.0-alpha07"
-agp = "8.2.1"
+agp = "8.5.0"
 coil-compose = "2.6.0"
 core-splashscreen = "1.0.1"
-hilt-android = "2.48.1"
+hilt-android = "2.51.1"
 hiltNavigationCompose = "1.2.0"
-kotlin = "1.9.20"
-core-ktx = "1.12.0"
+kotlin = "2.0.0"
+core-ktx = "1.13.1"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
-lifecycle-runtime-ktx = "2.7.0"
-activity-compose = "1.8.2"
-compose-bom = "2023.10.01"
-lottie-compose = "6.0.0"
-navigation-compose = "2.7.6"
+lifecycle-runtime-ktx = "2.8.2"
+activity-compose = "1.9.0"
+compose-bom = "2024.06.00"
+lottie-compose = "6.4.1"
+materialIconsExtended = "1.6.8"
+navigation-compose = "2.7.7"
 okhttpBom = "4.12.0"
-retrofit = "2.9.0"
+retrofit = "2.11.0"
 roomCompiler = "2.6.1"
-roomVersion = "2.4.3"
-runtimeLivedata = "1.6.2"
+roomVersion = "2.6.1"
+runtimeLivedata = "1.6.8"
 
 [libraries]
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "core-splashscreen" }
 androidx-hilt-navigation-compose = { module = "androidx.hilt:hilt-navigation-compose", version.ref = "hiltNavigationCompose" }
 androidx-lifecycle-viewmodel-compose = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle-runtime-ktx" }
+androidx-material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "materialIconsExtended" }
 androidx-navigation-compose = { module = "androidx.navigation:navigation-compose", version.ref = "navigation-compose" }
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomVersion" }
 androidx-room-compiler-v261 = { module = "androidx.room:room-compiler", version.ref = "roomCompiler" }
@@ -60,4 +62,5 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 hiltAndroid = {id = "com.google.dagger.hilt.android",version.ref = "hilt-android"}
 
-
+# Add this line
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
