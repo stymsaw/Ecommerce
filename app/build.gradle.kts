@@ -13,7 +13,7 @@ plugins {
 
 android {
     namespace = "com.example.ecommerce"
-    compileSdk = 34
+    compileSdk = 35
 
 
 
