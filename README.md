@@ -26,14 +26,7 @@ A simple e-commerce app that connects local retailers with people around
       that notify views when the underlying database changes.
     - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores
       UI-related data that isn't destroyed on UI changes.
-    - [ViewBinding](https://developer.android.com/topic/libraries/view-binding) - Generates a
-      binding class for each XML layout file present in that module and allows you to more easily
-      write code that interacts with views.
-    - [Room](https://developer.android.com/topic/libraries/architecture/room) - SQLite object
-      mapping library.
-- [Dependency Injection](https://developer.android.com/training/dependency-injection) -
-    - [Dagger2](https://dagger.dev/) - Standard library to incorporate Dagger dependency injection
-      into an Android application.
+- [Dependency Injection](https://developer.android.com/training/dependency-injection)
 - [Retrofit](https://github.com/amitshekhariitbhu/Fast-Android-Networking) - A Complete Fast Android
   Networking Library that also supports HTTP/2.
 - [Gson](https://github.com/google/gson) - A modern JSON library for Kotlin and Java.
@@ -46,24 +39,14 @@ A simple e-commerce app that connects local retailers with people around
 
 # Package Structure
 
-    com.stymsaw.myshop    # Root Package
-    .
     ├── data                # For data handling.
-    │   ├── local           # Local Persistence Database. Room  and shared perf
-    |   │   └──dao            # Data Access Object for Room   
-    |   |   
     │   ├── remote          # Remote Data Handlers     
     │   ├── model           # Model classes
     |   │   ├── api         # Model classes for Api
-    |   |   └── db          # Model classes for Db
     │   └── repository      # Single source of data.
     |
     ├── navigation          # PArent Navhost for navigation  
     |
-    ├── di                  # Dependency Injection  
-    │   ├── module          # DI Modules
-    │   ├── component       # DI Components       
-    │   └── scope           # Dependency Scope
     |
     ├── ui                  # Activity/View layer
     │   ├── base            # Base View
@@ -73,31 +56,7 @@ A simple e-commerce app that connects local retailers with people around
     │   ├── searchscreen    # Searchscreen and ViewModel
     │   ├── splashscreen    # Splashscreen 
     │   └──  theme           # App themeing details
-    │   
-    |
-    └── utils               # Utility Classes 
-
-## Architecture
-
-This app uses [***MVVM (Model View View-Model)
-***](https://developer.android.com/jetpack/docs/guide#recommended-app-arch) architecture.
-
-![](https://developer.android.com/topic/libraries/architecture/images/final-architecture.png)
-
-### Requirements
-
-- JDK 8
-- Latest Android SDK tools
-- Latest Android platform tools
-- Android SDK 21 or newer
-- AndroidX
-
-#### Setup Project
-
-1. Open Android Studio and select Get from Version Control.
-2. Add URL as **https://github.com/stymsaw/Ecommerce** and proceed.
-3. Sync The project and you are done.
-
+  
 ## License
 
 ```
